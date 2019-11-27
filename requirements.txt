@@ -1,0 +1,7 @@
+flask
+flask-webtest
+pytest
+pytest-cov
+pytest-flake8
+flask_basic
+Sphinx
