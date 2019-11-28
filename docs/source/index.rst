@@ -6,6 +6,8 @@
 Welcome to Titan's documentation!
 =================================
 
+**Titan** is (or will be) a CTI tool to analyze IoCs and apply machine learning.
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
