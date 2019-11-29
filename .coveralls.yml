@@ -1,0 +1,3 @@
+repo_token: zJhMwQEd9KYICTdJkbKMCATLbNOJ3Ro1g
+service_name: circleci
+parallel: true # if the CI is running your build in parallel
