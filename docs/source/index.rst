@@ -12,6 +12,7 @@ Welcome to Titan's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+.. automodule:: api
 
 
 Indices and tables
