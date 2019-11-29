@@ -13,15 +13,13 @@ app = Flask(__name__)
 def api_main():
     """
     **Main API view**
-          
-    Main API module. 
-    
+
     :return: For now, just a Status: Working JSON
     
-    - Example::
+    - Example:
         Nothing really, just testing still
      
-    - Expected Success Response::
+    - Expected Success Response:
         HTTP Status Code: 200
         {'Status': 'Working'}
         
@@ -30,6 +28,18 @@ def api_main():
 
 @app.route('/tretas', methods=['GET'])
 def tretas():
+    """
+    **Tretas API easter egg**
+    
+    :return: Tretas: Pesadas JSON.
+    
+    - Example:
+        GET /tretas
+        
+    - Expected Success Response:
+        HTTP Status Code: 200
+        {'Tretas':'Pesadas'}
+    """
     return jsonify({'Tretas': 'Pesadas'})
 
 if __name__ == '__main__':

@@ -13,6 +13,8 @@ Welcome to Titan's documentation!
    :caption: Contents:
 
 .. automodule:: api
+    :members:
+
 
 Indices and tables
 ==================
