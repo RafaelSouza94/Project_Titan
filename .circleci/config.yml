@@ -13,3 +13,13 @@ jobs:
             - run: pytest --cov=flask_basic --flake8 tests/test_*
             - run: bandit -r .
             - run: sphinx-build -W -b html docs/source/ docs/build/
+            - sonarcloud/scan
+            
+orbs:
+  sonarcloud: sonarsource/sonarcloud@1.0.1
+  
+workflows:
+    main:
+        jobs:
+            - build:
+                context: SonarCloud  
