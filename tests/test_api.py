@@ -1,12 +1,12 @@
 import unittest
-from flask_basic import app as tested_app
+from titan import api
 from flask_webtest import TestApp
 
 class TestAPI(unittest.TestCase):
     
     def test_help(self):
         # creating a client to interact with the app
-        app = TestApp(tested_app)
+        app = TestApp(api.app)
         
         # calling /api/ endpoint
         hello = app.get('/api')
