@@ -11,4 +11,4 @@ jobs:
             - checkout
             - run: sudo pip install -r requirements.txt
 #            - run: cd tests && pytest test_* && cd ..  -- Check if all these cds are needed
-            - run: sphinx-build -b html docs/source/ docs/build/
+            - run: sphinx-build -W -b html docs/source/ docs/build/
