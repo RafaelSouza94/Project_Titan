@@ -1,13 +1,16 @@
 import unittest
-from flask_basic import app as tested_app
+#from flask_basic import app as tested_app
 from flask_webtest import TestApp
-import api
+from app import api
 
-'''class TestAPI(unittest.TestCase):
+class TestAPI(unittest.TestCase):
     
     def test_help(self):
+        '''
+        **Basic test for API response**
+        '''
         # creating a client to interact with the app
-        app = TestApp(tested_app)
+        app = TestApp(api)
         
         # calling /api/ endpoint
         hello = app.get('/api')
@@ -16,7 +19,7 @@ import api
         self.assertEqual(hello.json['Status'], 'Working')
         
 if __name__ == '__main__':
-    unittest.main()'''
+    unittest.main()
 
-def test_api():
+
     
