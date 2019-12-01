@@ -1,6 +1,7 @@
 from flask_api import FlaskAPI
 from instance.config import app_config
 
+
 def create_app(config_name):
     '''
     **Initialization function**

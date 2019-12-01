@@ -10,7 +10,8 @@ jobs:
         steps:
             - checkout
             - run: sudo pip install -r requirements.txt
-            - run: pytest --cov=flask_basic --flake8 tests/test_*
+            - run: pytest --cov=api tests/
+            - run: flake8 --ignore W293 app/*.py 
             - run: bandit -r .
             - run: sphinx-build -W -b html docs/source/ docs/build/
             - sonarcloud/scan

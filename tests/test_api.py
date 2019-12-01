@@ -1,22 +1,27 @@
 import unittest
-#from flask_basic import app as tested_app
+# from flask_basic import app as tested_app
 from flask_webtest import TestApp
-from app import api
+import sys
+sys.path.insert(1, '/home/cabox/workspace/titan/app/')
+from api import app
 
 class TestAPI(unittest.TestCase):
     
-    def test_help(self):
+    
+    def test(self):
         '''
         **Basic test for API response**
         '''
         # creating a client to interact with the app
-        app = TestApp(api)
+        tested_app = TestApp(app)
         
         # calling /api/ endpoint
-        hello = app.get('/api')
+        hello = tested_app.get('/api')
+        tretas = tested_app.get('/tretas')
         
         # asserting the body
         self.assertEqual(hello.json['Status'], 'Working')
+        self.assertEqual(tretas.json['Tretas'], 'Pesadas')
         
 if __name__ == '__main__':
     unittest.main()
