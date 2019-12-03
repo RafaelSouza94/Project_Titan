@@ -43,5 +43,10 @@ def tretas():
     return jsonify({'Tretas': 'Pesadas'})
 
 
+#@app.route('/api/otx')
+#def otx():
+    
+    
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
