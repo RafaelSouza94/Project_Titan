@@ -3,6 +3,10 @@
 # Check https://circleci.com/docs/2.0/language-python/ for more details
 #
 version: 2
+
+orbs:
+  sonarcloud: sonarsource/sonarcloud@1.0.1
+
 jobs:
     build:
         docker:
@@ -14,10 +18,7 @@ jobs:
             - run: flake8 --ignore W293 app/*.py 
             - run: bandit -r .
             - run: sphinx-build -W -b html docs/source/ docs/build/
-            - sonarcloud/scan        
-            
-orbs:
-  sonarcloud: sonarsource/sonarcloud@1.0.1
+            - sonarcloud/scan       
   
 workflows:
     version: 2
