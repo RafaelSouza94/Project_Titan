@@ -3,7 +3,7 @@ import unittest
 from flask_webtest import TestApp
 import sys
 sys.path.insert(1, '/home/cabox/workspace/titan/app/')
-from api import app
+from Titan.api import app
 
 class TestAPI(unittest.TestCase):
     

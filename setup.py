@@ -14,8 +14,7 @@ setup(name='Titan',
       classifiers=[
           'Development Status :: 3 - Alpha', 
           'License :: OSI Approved :: GNU GPLv3',
-          'Programming Language :: Python :: 3'
-      ]
+          'Programming Language :: Python :: 3']
       keywords=['flask', 'security', 'threat intelligence']
       packages=find_packages(),
       include_package_data=True,
