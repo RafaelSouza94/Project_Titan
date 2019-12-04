@@ -14,12 +14,13 @@ jobs:
             - run: flake8 --ignore W293 app/*.py 
             - run: bandit -r .
             - run: sphinx-build -W -b html docs/source/ docs/build/
-            - sonarcloud/scan
+            - sonarcloud/scan        
             
 orbs:
   sonarcloud: sonarsource/sonarcloud@1.0.1
   
 workflows:
+    version: 2
     main:
         jobs:
             - build:
