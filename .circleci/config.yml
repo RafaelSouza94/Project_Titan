@@ -17,7 +17,7 @@ jobs:
             - run: sudo pip install .
             - run: pytest --cov=api tests/
             - run: flake8 --ignore W293 app/*.py 
-            - run: bandit -r .
+            - run: bandit -r app/*.py
             - run: sphinx-build -W -b html docs/source/ docs/build/
             - sonarcloud/scan       
   
