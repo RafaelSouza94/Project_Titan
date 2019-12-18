@@ -5,5 +5,5 @@ pytest-cov
 pytest-flake8
 flask_basic
 Sphinx
-python-coveralls
+python-coveralls==2.9.3
 bandit
