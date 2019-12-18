@@ -1,9 +1,8 @@
 import unittest
-# from flask_basic import app as tested_app
 from flask_webtest import TestApp
 import sys
-#sys.path.insert(1, '../app/')
-from titan.api import app
+
+from ..app.api import app
 
 class TestAPI(unittest.TestCase):
     
