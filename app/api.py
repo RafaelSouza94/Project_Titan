@@ -40,12 +40,7 @@ def tretas():
         HTTP Status Code: 200
         {'Tretas':'Pesadas'}
     """
-    return jsonify({'Tretas': 'Pesadas'})
-
-
-#@app.route('/api/otx')
-#def otx():
-    
+    return jsonify({'Tretas': 'Pesadas'}) 
     
 
 if __name__ == '__main__':
