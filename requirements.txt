@@ -7,3 +7,4 @@ flask_basic
 Sphinx
 python-coveralls==2.9.3
 bandit
+coverage==3.7.1
