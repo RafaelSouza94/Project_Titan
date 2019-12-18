@@ -8,4 +8,4 @@ Sphinx
 python-coveralls==2.9.3
 bandit
 coveralls
-coverage
+coverage==4.5.4
