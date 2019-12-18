@@ -12,7 +12,7 @@ Welcome to Titan's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-.. automodule:: api
+.. automodule:: app.api
     :members:
 
 
