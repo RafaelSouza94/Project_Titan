@@ -21,6 +21,8 @@ jobs:
             - run: bandit -r app/*.py
             - run: sphinx-build -W -b html docs/source/ docs/build/
             - sonarcloud/scan       
+            - store_test_results:
+                path: .
   
 workflows:
     version: 2.1

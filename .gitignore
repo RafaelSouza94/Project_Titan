@@ -8,6 +8,7 @@ lib64
 pip-selfcheck.json
 pyvenv.cfg
 Titan.egg-info
+coverage.xml
 
 # C extensions
 *.so
