@@ -15,7 +15,7 @@ jobs:
             - checkout
             - run: sudo pip install -r requirements.txt
             - run: sudo pip install .
-            - run: pytest --cov=app tests/
+            - run: pytest --cov-report xml --cov=app tests/
             - run: coveralls
             - run: flake8 --ignore W293 app/*.py 
             - run: bandit -r app/*.py
