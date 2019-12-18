@@ -40,7 +40,8 @@ def tretas():
         HTTP Status Code: 200
         {'Tretas':'Pesadas'}
     """
-    return jsonify({'Tretas': 'Pesadas'}) 
+    return jsonify({'Tretas': 'Pesadas'})
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
