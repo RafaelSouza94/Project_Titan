@@ -42,7 +42,8 @@ def otx():
     """
 
     return jsonify({'Status': 'Working'})
-    
+
+
 @app.route('/tretas', methods=['GET'])
 def tretas():
     """
