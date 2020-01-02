@@ -26,6 +26,23 @@ def api_main():
     return jsonify({'Status': 'Working'})
 
 
+@app.route('/otx', methods=['GET', 'POST'])
+def otx():
+    """
+    **OTX Basic**
+    
+    :return: For now, just a Status: Working JSON
+    
+    - Example:
+        Nothing yet
+        
+    - Expected Success Response:
+        HTTP Status Code: 200
+        {'Status': 'Working'}
+    """
+
+    return jsonify({'Status': 'Working'})
+    
 @app.route('/tretas', methods=['GET'])
 def tretas():
     """
@@ -44,4 +61,4 @@ def tretas():
 
 
 if __name__ == '__main__':
-    app.run(host='127.0.0.1')
+    app.run(host='0.0.0.0')
