@@ -13,11 +13,12 @@ otx_api = JsonBlueprint('OTX', __name__)
 
 try:
     OTX_KEY = os.environ[OTX_KEY_NAME]
-except KeyError as err:
+except KeyError:
     print("Error: {} not found in environment variables!".
           format(OTX_KEY_NAME))
 else:
     otx_call = OTXv2(OTX_KEY)
+
     
 @otx_api.route(BASE_ADDR, methods=['GET', 'POST'])
 def otx():
@@ -57,13 +58,7 @@ def get_info_ip():
         print("IP: {}".format(ip))
         return otx_call.get_indicator_details_full(
             IndicatorTypes.IPv4, ip['ip'])
-    else:
+    else: 
         return {"Error":"Request not in JSON format!"}
-
-
-
-
-
-
 
 
