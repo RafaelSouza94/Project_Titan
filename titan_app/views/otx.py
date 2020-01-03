@@ -1,21 +1,31 @@
+import os
 from flakon import JsonBlueprint
 """OTX API communication module
 
  .. moduleauthor:: Rafael Souza <https://github.com/RafaelSouza94>
 """
 
+OTX_KEY_NAME = 'OTX_KEY'
+BASE_ADDR = '/otx/'
 otx_api = JsonBlueprint('OTX', __name__)
 
-
-@otx_api.route('/otx', methods=['GET', 'POST'])
+try:
+    OTX_KEY = os.environ[OTX_KEY_NAME]
+except KeyError as err:
+    print("Error: {} not found in environment variables!".
+          format(OTX_KEY_NAME))
+else:
+    otx_call = OTXv2(OTX_KEY)
+    
+@otx_api.route(BASE_ADDR, methods=['GET', 'POST'])
 def otx():
     """
     **OTX Basic**
     
-    :return: For now, just a Status: Working JSON
+    :return: Current status of the API
     
     - Example:
-        Nothing yet
+        GET /otx
         
     - Expected Success Response:
         HTTP Status Code: 200
@@ -23,3 +33,23 @@ def otx():
     """
 
     return {'Status': 'Working'}
+
+
+@otx_api.route(BASE_ADDR + 'getpulses')
+def get_pulses():
+    """
+    **Get all OTX pulses for current API key**
+    
+    :return: All info about all pulses
+    
+    - Example:
+        GET /otx/getpulses
+        
+    - Expected Success Response:
+        HTTP Status Code: 200
+        {'pulse1':'info', 'pulse2':'info'}
+    """
+    pulses = otx_call.getall(limit=20)
+    return pulses
+
+

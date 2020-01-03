@@ -1,6 +1,6 @@
 import os
 from flakon import create_app
-from ..titan_app.views import blueprints
+from .views import blueprints
 
 _HERE = os.path.dirname(__file__)
 _SETTINGS = os.path.join(_HERE, '..', 'settings.ini')
