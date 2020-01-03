@@ -1,5 +1,7 @@
 import os
+from OTXv2 import OTXv2, IndicatorTypes
 from flakon import JsonBlueprint
+from flask import request
 """OTX API communication module
 
  .. moduleauthor:: Rafael Souza <https://github.com/RafaelSouza94>
@@ -35,21 +37,33 @@ def otx():
     return {'Status': 'Working'}
 
 
-@otx_api.route(BASE_ADDR + 'getpulses')
-def get_pulses():
+@otx_api.route(BASE_ADDR + 'getinfoip', methods=['POST'])
+def get_info_ip():
     """
-    **Get all OTX pulses for current API key**
+    **OTX get info about an IP**
     
-    :return: All info about all pulses
+    :return: All information available about an IP address
     
     - Example:
-        GET /otx/getpulses
+        POST /otx/getinfoip
+        {"ip":"113.52.135.33"}
         
     - Expected Success Response:
         HTTP Status Code: 200
-        {'pulse1':'info', 'pulse2':'info'}
+        JSON with info about IP.
     """
-    pulses = otx_call.getall(limit=20)
-    return pulses
+    if request.is_json:
+        ip = request.json
+        print("IP: {}".format(ip))
+        return otx_call.get_indicator_details_full(
+            IndicatorTypes.IPv4, ip['ip'])
+    else:
+        return {"Error":"Request not in JSON format!"}
+
+
+
+
+
+
 
 

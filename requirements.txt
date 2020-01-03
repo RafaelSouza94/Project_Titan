@@ -11,3 +11,4 @@ coveralls
 coverage==4.5.4
 flakon
 OTXv2
+requests_mock
