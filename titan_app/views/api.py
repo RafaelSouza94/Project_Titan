@@ -1,14 +1,14 @@
-from flask import Flask, jsonify
+from flakon import JsonBlueprint
 """Basic API module
 
  .. moduleauthor:: Rafael Souza <https://github.com/RafaelSouza94>
 """
 
 
-app = Flask(__name__)
+api = JsonBlueprint('home', __name__)
 
 
-@app.route('/api', methods=['GET', 'POST'])
+@api.route('/api', methods=['GET', 'POST'])
 def api_main():
     """
     **Main API view**
@@ -23,10 +23,10 @@ def api_main():
         {'Status': 'Working'}
 
     """
-    return jsonify({'Status': 'Working'})
+    return {'Status': 'Working'}
 
 
-@app.route('/otx', methods=['GET', 'POST'])
+@api.route('/otx', methods=['GET', 'POST'])
 def otx():
     """
     **OTX Basic**
@@ -41,10 +41,10 @@ def otx():
         {'Status': 'Working'}
     """
 
-    return jsonify({'Status': 'Working'})
+    return {'Status': 'Working'}
 
 
-@app.route('/tretas', methods=['GET'])
+@api.route('/tretas', methods=['GET'])
 def tretas():
     """
     **Tretas API easter egg**
@@ -58,8 +58,4 @@ def tretas():
         HTTP Status Code: 200
         {'Tretas':'Pesadas'}
     """
-    return jsonify({'Tretas': 'Pesadas'})
-
-
-if __name__ == '__main__':
-    app.run(host='127.0.0.1')
+    return {'Tretas': 'Pesadas'}

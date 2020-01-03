@@ -2,7 +2,7 @@ import unittest
 from flask_webtest import TestApp
 import sys
 
-from ..app.api import app
+from ..app import app
 
 class TestAPI(unittest.TestCase):
     
