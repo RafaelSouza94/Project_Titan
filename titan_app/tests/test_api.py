@@ -1,6 +1,5 @@
 import unittest
 from flask_webtest import TestApp
-import sys
 
 from ..app import app
 

@@ -1,3 +1,4 @@
 from .api import api
+from .otx import otx_api
 
-blueprints = [api]
+blueprints = [api, otx_api]

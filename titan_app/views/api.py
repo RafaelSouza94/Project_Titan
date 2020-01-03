@@ -26,24 +26,6 @@ def api_main():
     return {'Status': 'Working'}
 
 
-@api.route('/otx', methods=['GET', 'POST'])
-def otx():
-    """
-    **OTX Basic**
-    
-    :return: For now, just a Status: Working JSON
-    
-    - Example:
-        Nothing yet
-        
-    - Expected Success Response:
-        HTTP Status Code: 200
-        {'Status': 'Working'}
-    """
-
-    return {'Status': 'Working'}
-
-
 @api.route('/tretas', methods=['GET'])
 def tretas():
     """

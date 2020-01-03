@@ -15,6 +15,8 @@ Welcome to Titan's documentation!
 .. automodule:: titan_app.views.api
     :members:
 
+.. automodule:: titan_app.views.otx
+    :members:
 
 Indices and tables
 ==================
