@@ -58,7 +58,5 @@ def get_info_ip():
         print("IP: {}".format(ip))
         return otx_call.get_indicator_details_full(
             IndicatorTypes.IPv4, ip['ip'])
-    else: 
-        return {"Error":"Request not in JSON format!"}
-
-
+    else:
+        return {"Error": "Request not in JSON format!"}
