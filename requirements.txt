@@ -9,3 +9,4 @@ python-coveralls==2.9.3
 bandit
 coveralls
 coverage==4.5.4
+flakon
