@@ -56,7 +56,7 @@ def get_info_ip():
     if request.is_json:
         ip = request.json
         print("IP: {}".format(ip))
-        if 'ip' in ip: 
+        if 'ip' in ip:
             return otx_call.get_indicator_details_full(
                 IndicatorTypes.IPv4, ip['ip'])
         else:
