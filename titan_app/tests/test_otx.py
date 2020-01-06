@@ -15,18 +15,12 @@ class TestOTX(unittest.TestCase):
         otx_test = self.tested_app.get('/otx/')
         self.assertEqual(otx_test.json['Status'], 'Working')
         
-    '''def test_otx_ip_info(self):
-        mocked_value = json.dumps({'ip':'info'})
-        self.adapter.register_uri(
-            'POST', 
-            'http://0.0.0.0:5000/otx/getinfoip', 
-            text=mocked_value
-        ) 
-        otx_ip_info = self.tested_app.post_json(
+    def test_otx_ip_info(self):
+        otx_ip_info = self.tested_app.post(
             '/otx/getinfoip',
             {"ip":"113.52.135.33"}
         )
-        assert "Error" not in otx_ip_info'''
+        assert "Error" in otx_ip_info
     
 if __name__ == '__main__':
     unittest.main()
