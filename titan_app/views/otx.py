@@ -19,17 +19,17 @@ except KeyError:
 else:
     otx_call = OTXv2(OTX_KEY)
 
-    
+
 @otx_api.route(BASE_ADDR, methods=['GET', 'POST'])
 def otx():
     """
     **OTX Basic**
-    
+
     :return: Current status of the API
-    
+
     - Example:
         GET /otx
-        
+
     - Expected Success Response:
         HTTP Status Code: 200
         {'Status': 'Working'}
@@ -44,23 +44,25 @@ def otx():
 def get_info(var):
     """
     **OTX get info about an IP or URL, based on <var>**
-    
+
     :return: All information available about an IP address or URL
-    
+
     - Example:
         POST /otx/getinfo/ip
         {"ip":"113.52.135.33"}
-        
+
         POST /otx/getinfo/url
         {"url":"google.com"}
-        
+
     - Expected Success Response:
         HTTP Status Code: 200
         JSON with info.
     """
     vars = {'ip': IndicatorTypes.IPv4, 'url': IndicatorTypes.DOMAIN}
-    if not var in vars:
-        return {"Error": "Invalid information source. Please access resource at {}".format(vars.keys())}
+    if var not in vars:
+        return {"Error":
+                "Invalid information source. Please access resource at {}"
+                .format(vars.keys())}
     if not request.is_json:
         return {"Error": "Request not in JSON format!"}
     else:
@@ -76,4 +78,4 @@ def get_info(var):
             else:
                 return response
         else:
-            return {"Error": f"Value {var} needed not found in input!"}        
+            return {"Error": f"Value {var} needed not found in input!"}
