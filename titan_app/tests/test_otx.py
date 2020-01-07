@@ -29,12 +29,19 @@ class TestOTX(unittest.TestCase):
         )
         assert "Error" in otx_ip_info
         
-    '''def test_otx_url_info(self):
+    def test_otx_url_info_not_json(self):
         otx_url_info = self.tested_app.post(
             '/otx/getinfourl',
             {"url":"http://google.com"}
         )
-        assert "Error" in otx_ip_info'''
+        assert "Error" in otx_url_info
+        
+    def test_otx_url_info_no_url(self):
+        otx_url_info = self.tested_app.post(
+            '/otx/getinfourl',
+            {"nothing":"again"}
+        )
+        assert "Error" in otx_url_info    
     
 if __name__ == '__main__':
     unittest.main()

@@ -1,5 +1,5 @@
 import os
-from OTXv2 import OTXv2, IndicatorTypes
+from OTXv2 import OTXv2, IndicatorTypes, BadRequest
 from flakon import JsonBlueprint
 from flask import request
 """OTX API communication module
@@ -37,29 +37,43 @@ def otx():
 
     return {'Status': 'Working'}
 
+# TODO: add /getinfo/ endpoint to tell the client the available methods
 
-@otx_api.route(BASE_ADDR + 'getinfoip', methods=['POST'])
-def get_info_ip():
+# TODO: refactor
+@otx_api.route(BASE_ADDR + 'getinfo/<var>', methods=['POST'])
+def get_info(var):
     """
-    **OTX get info about an IP**
+    **OTX get info about an IP or URL, based on <var>**
     
-    :return: All information available about an IP address
+    :return: All information available about an IP address or URL
     
     - Example:
-        POST /otx/getinfoip
+        POST /otx/getinfo/ip
         {"ip":"113.52.135.33"}
+        
+        POST /otx/getinfo/url
+        {"url":"google.com"}
         
     - Expected Success Response:
         HTTP Status Code: 200
-        JSON with info about IP.
+        JSON with info.
     """
-    if request.is_json:
-        ip = request.json
-        print("IP: {}".format(ip))
-        if 'ip' in ip:
-            return otx_call.get_indicator_details_full(
-                IndicatorTypes.IPv4, ip['ip'])
-        else:
-            return {"Error": "IP key not found in input!"}
-    else:
+    vars = {'ip': IndicatorTypes.IPv4, 'url': IndicatorTypes.DOMAIN}
+    if not var in vars:
+        return {"Error": "Invalid information source. Please access resource at {}".format(vars.keys())}
+    if not request.is_json:
         return {"Error": "Request not in JSON format!"}
+    else:
+        values = request.json
+        print("POST data: {}".format(values))
+        if var in values:
+            try:
+                response = otx_call.get_indicator_details_full(
+                    vars[var], values[var])
+            except BadRequest as err:
+                print(err)
+                return str(err)
+            else:
+                return response
+        else:
+            return {"Error": f"Value {var} needed not found in input!"}        
