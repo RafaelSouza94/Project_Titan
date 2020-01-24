@@ -2,7 +2,7 @@ import os
 from OTXv2 import OTXv2, IndicatorTypes, BadRequest
 from flakon import JsonBlueprint
 from flask import request
-"""OTX API communication module
+"""OTX API communication module teste
 
  .. moduleauthor:: Rafael Souza <https://github.com/RafaelSouza94>
 """
@@ -39,7 +39,6 @@ def otx():
 
 # TODO: add /getinfo/ endpoint to tell the client the available methods
 
-# TODO: refactor
 @otx_api.route(BASE_ADDR + 'getinfo/<var>', methods=['POST'])
 def get_info(var):
     """
