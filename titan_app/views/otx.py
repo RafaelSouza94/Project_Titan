@@ -97,7 +97,6 @@ def extract_info(otx_response, type):
         {malware}
     """
     if type not in otx_response['general']['sections']:
-        return {"Error":"Type not found in OTX response"}
+        return {"Error": "Type not found in OTX response"}
     else:
         return otx_response[type]
-        
