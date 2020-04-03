@@ -41,7 +41,7 @@ def otx():
 @otx_api.route(BASE_ADDR + 'getinfo/<var>', methods=['POST'])
 def get_info(var):
     """
-    **OTX get info about an IP or URL, based on <var>. 
+    **OTX get info about an IP or URL, based on <var>.
     Return based on <type>. If <type> is missing, return everything.**
 
     :return: All information available about an IP address or URL
@@ -97,14 +97,3 @@ def extract_info(reponse, type):
         {malware}
     """
     return {"Extract": "Working"}
-
-
-
-
-
-
-
-
-
-
-
