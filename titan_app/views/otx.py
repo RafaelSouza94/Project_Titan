@@ -75,15 +75,16 @@ def get_info(var):
                 print(err)
                 return str(err)
             else:
-                if not type:
+                if "type" not in values:
                     return response
                 else:
+                    type = values['type']
                     return extract_info(response, type)
         else:
             return {"Error": f"Value {var} needed not found in input!"}
         
         
-def extract_info(reponse, type):
+def extract_info(otx_response, type):
     """
     **Extract the necessary information based on <type>. Internal use only.**
 
@@ -95,4 +96,8 @@ def extract_info(reponse, type):
     - Expected Success Response:
         {malware}
     """
-    return {"Extract": "Working"}
+    if type not in otx_response['general']['sections']:
+        return {"Error":"Type not found in OTX response"}
+    else:
+        return otx_response[type]
+        
