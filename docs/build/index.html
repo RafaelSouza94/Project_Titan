@@ -84,17 +84,68 @@
 </dd></dl>
 
 <span class="target" id="module-titan_app.views.otx"></span><dl class="function">
+<dt id="titan_app.views.otx.extract_info">
+<code class="sig-prename descclassname">titan_app.views.otx.</code><code class="sig-name descname">extract_info</code><span class="sig-paren">(</span><em class="sig-param">reponse</em>, <em class="sig-param">type</em><span class="sig-paren">)</span><a class="headerlink" href="#titan_app.views.otx.extract_info" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Extract the necessary information based on &lt;type&gt;. Internal use only.</strong></p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Dictionary with only the necessary information</p>
+</dd>
+</dl>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Example:</dt><dd><p>extract_info(json, malware)</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Expected Success Response:</dt><dd><p>{malware}</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd></dl>
+
+<dl class="function">
+<dt id="titan_app.views.otx.get_info">
+<code class="sig-prename descclassname">titan_app.views.otx.</code><code class="sig-name descname">get_info</code><span class="sig-paren">(</span><em class="sig-param">var</em><span class="sig-paren">)</span><a class="headerlink" href="#titan_app.views.otx.get_info" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>OTX get info about an IP or URL, based on &lt;var&gt;.
+Return based on &lt;type&gt;. If &lt;type&gt; is missing, return everything.</strong></p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>All information available about an IP address or URL</p>
+</dd>
+</dl>
+<ul>
+<li><dl>
+<dt>Example:</dt><dd><p>POST /otx/getinfo/ip
+{“ip”:”113.52.135.33”, “type”:”geo”}</p>
+<p>POST /otx/getinfo/url
+{“url”:”google.com”}</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Expected Success Response:</dt><dd><p>HTTP Status Code: 200
+JSON with info.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd></dl>
+
+<dl class="function">
 <dt id="titan_app.views.otx.otx">
 <code class="sig-prename descclassname">titan_app.views.otx.</code><code class="sig-name descname">otx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#titan_app.views.otx.otx" title="Permalink to this definition">¶</a></dt>
 <dd><p><strong>OTX Basic</strong></p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>For now, just a Status: Working JSON</p>
+<dd class="field-odd"><p>Current status of the API</p>
 </dd>
 </dl>
 <ul class="simple">
 <li><dl class="simple">
-<dt>Example:</dt><dd><p>Nothing yet</p>
+<dt>Example:</dt><dd><p>GET /otx</p>
 </dd>
 </dl>
 </li>

@@ -48,8 +48,7 @@ def get_info(var):
 
     - Example:
         POST /otx/getinfo/ip
-        {"ip":"113.52.135.33",
-          "type":"geo"}
+        {"ip":"113.52.135.33", "type":"geo"}
 
         POST /otx/getinfo/url
         {"url":"google.com"}
