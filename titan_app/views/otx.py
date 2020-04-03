@@ -2,7 +2,7 @@ import os
 from OTXv2 import OTXv2, IndicatorTypes, BadRequest
 from flakon import JsonBlueprint
 from flask import request
-"""OTX API communication module teste
+"""OTX API communication module
 
  .. moduleauthor:: Rafael Souza <https://github.com/RafaelSouza94>
 """
@@ -37,18 +37,19 @@ def otx():
 
     return {'Status': 'Working'}
 
-# TODO: add /getinfo/ endpoint to tell the client the available methods
 
 @otx_api.route(BASE_ADDR + 'getinfo/<var>', methods=['POST'])
 def get_info(var):
     """
-    **OTX get info about an IP or URL, based on <var>**
+    **OTX get info about an IP or URL, based on <var>. 
+    Return based on <type>. If <type> is missing, return everything.**
 
     :return: All information available about an IP address or URL
 
     - Example:
         POST /otx/getinfo/ip
-        {"ip":"113.52.135.33"}
+        {"ip":"113.52.135.33",
+          "type":"geo"}
 
         POST /otx/getinfo/url
         {"url":"google.com"}
@@ -75,6 +76,35 @@ def get_info(var):
                 print(err)
                 return str(err)
             else:
-                return response
+                if not type:
+                    return response
+                else:
+                    return extract_info(response, type)
         else:
             return {"Error": f"Value {var} needed not found in input!"}
+        
+        
+def extract_info(reponse, type):
+    """
+    **Extract the necessary information based on <type>. Internal use only.**
+
+    :return: Dictionary with only the necessary information
+
+    - Example:
+        extract_info(json, malware)
+
+    - Expected Success Response:
+        {malware}
+    """
+    return {"Extract": "Working"}
+
+
+
+
+
+
+
+
+
+
+
